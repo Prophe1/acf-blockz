@@ -1,0 +1,23 @@
+{
+    "name": "prophe1/acf-blocks",
+    "description": "OOP way of adding ACF blocks",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sidas Snieska",
+            "email": "ssnieskiokas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Prophe1\\ACF_Block\\": "src"
+        }
+    },
+    "require": {
+      "php": ">=7.1"
+    },
+    "require-dev": {
+      "squizlabs/php_codesniffer": "3.*",
+      "phpunit/phpunit": "^8"
+    }
+}
