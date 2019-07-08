@@ -1,12 +1,5 @@
 # ACF Blocks
-ACF Blocks is a OPP way of adding blocks.
-## Features
-
-<ul>
-<li>Easy to create new acf blocks</li>
-<li>Better maintainability</li>
-<li>Test driven code</li>
-</ul>
+This is updated version of This updated version of https://github.com/ItinerisLtd/acf-gutenblocks
 
 ## Requirements
 
