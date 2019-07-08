@@ -11,15 +11,15 @@
 namespace Prophe1\ACFBlockz;
 
 /**
- * Class ACFBlock
+ * Class ACFBlockz
  *
  * @since 0.1.0
- * @package Prophe1\ACFBlock
+ * @package Prophe1\ACFBlockz
  */
 class ACFBlockz
 {
     /**
-     * ACFBlock constructor.
+     * ACFBlockz constructor.
      *
      * @since 0.1.0
      */
