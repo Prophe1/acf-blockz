@@ -11,6 +11,35 @@ This updated version of https://github.com/ItinerisLtd/acf-gutenblocks
 
 ## Installation
 
+Add this to Your WordPress composer.json file:
+
+```
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "Prophe1/acf-blockz",
+        "version": "master",
+        "type": "wordpress-muplugin",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/Prophe1/acf-blockz.git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
+  ```
+And then, require it:
+```
+"prophe1/acf-blockz": "dev-master"
+```
+
+Or just upload it with WordPress plugin installer.
 
 ## Usage
 
