@@ -1,5 +1,5 @@
 # ACF Blocks
-This is updated version of This updated version of https://github.com/ItinerisLtd/acf-gutenblocks
+This updated version of https://github.com/ItinerisLtd/acf-gutenblocks
 
 ## Requirements
 
