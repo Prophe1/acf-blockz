@@ -35,7 +35,7 @@ abstract class AbstractBlock extends Block implements InitializableInterface
     {
         $frontend = apply_filters(
             'acfblocks/render_block_frontend_path',
-            "{$this->dir}/views/frontend{$this->fileExtension()}",
+            "{$this->dir}/blocks/{$this->getName()}{$this->fileExtension()}",
             $this
         );
 

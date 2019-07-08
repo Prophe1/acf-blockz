@@ -118,13 +118,14 @@ class Block
         // Path related definitions.
         $reflection     = new \ReflectionClass($this);
         $block_path     = $reflection->getFileName();
-        $directory_path = dirname($block_path);
         $this->name     = Util::camelToKebab(basename($block_path, '.php'));
 
         // User definitions.
         $this->enabled = $settings['enabled'] ?? true;
-        $this->dir     = $settings['dir'] ?? $directory_path;
+        $this->dir     = $settings['dir'] ?? '';
         $this->icon    = $settings['icon'] ?? apply_filters('acfblocks/default_icon', 'admin-generic');
+
+        $settings = array_replace($this->getDefaultSettings(), $settings);
 
         $settings = apply_filters('acfblocks/block_settings', [
             'title'       => $settings['title'],
@@ -166,6 +167,18 @@ class Block
     protected function registerFields(): array
     {
         return [];
+    }
+
+    /**
+     * Get Default Settings
+     *
+     * @return array
+     */
+    public function getDefaultSettings(): array
+    {
+        return [
+            'post_types' => array('post', 'page')
+        ];
     }
 
     /**
@@ -251,7 +264,7 @@ class Block
      * @since 0.1.0
      * @return array
      */
-    public function getPostTypes(): array
+    public function getPostTypes(): ?array
     {
         return $this->post_types;
     }
