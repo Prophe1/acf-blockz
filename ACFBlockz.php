@@ -30,8 +30,6 @@ class ACFBlockz
         $this->init();
 
         add_action('acf/init', [$this, 'init']);
-
-        //include_once 'src/Render.php';
     }
 
     /**
