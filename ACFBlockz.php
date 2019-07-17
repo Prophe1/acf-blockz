@@ -30,6 +30,8 @@ class ACFBlockz
         $this->init();
 
         add_action('acf/init', [$this, 'init']);
+
+        //include_once 'src/Render.php';
     }
 
     /**
@@ -58,14 +60,51 @@ class ACFBlockz
     }
 
     /**
-     * Include required files
+     * Autoload with composer autoloader or spl
      *
      * @since 0.1.0
      */
     private function autoloader()
     {
-        if (file_exists(ACFBLOCK_DIR . '/vendor/autoload.php')) {
+        if (file_exists(ACFBLOCK_DIR . '/vendor/autoload.php'))
+        {
             require_once ACFBLOCK_DIR . '/vendor/autoload.php';
+        } else {
+            spl_autoload_register([$this, 'autoload']);
+        }
+    }
+
+    /**
+     * This function is called by spl_autoload_register function it loads classes
+     *
+     * @param $class
+     */
+    private function autoload($class)
+    {
+        // project-specific namespace prefix
+        $prefix = __NAMESPACE__;
+
+        // base directory for the namespace prefix
+        $base_dir = __DIR__ . '/src/';
+
+        // does the class use the namespace prefix?
+        $len = strlen($prefix);
+        if (strncmp($prefix, $class, $len) !== 0) {
+            // no, move to the next registered autoloader
+            return;
+        }
+
+        // get the relative class name
+        $relative_class = substr($class, $len);
+
+        // replace the namespace prefix with the base directory, replace namespace
+        // separators with directory separators in the relative class name, append
+        // with .php
+        $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
+
+        // if the file exists, require it
+        if (file_exists($file)) {
+            require $file;
         }
     }
 
