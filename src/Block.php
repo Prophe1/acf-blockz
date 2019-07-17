@@ -120,28 +120,23 @@ class Block
         $block_path     = $reflection->getFileName();
         $this->name     = Util::camelToKebab(basename($block_path, '.php'));
 
-        // User definitions.
-        $this->enabled = $settings['enabled'] ?? true;
-        $this->dir     = $settings['dir'] ?? '';
-        $this->icon    = $settings['icon'] ?? apply_filters('acfblocks/default_icon', 'admin-generic');
-
+        // Replace default values with new ones
         $settings = array_replace($this->getDefaultSettings(), $settings);
 
-        $settings = apply_filters('acfblocks/block_settings', [
-            'title'       => $settings['title'],
-            'description' => $settings['description'],
-            'category'    => $settings['category'],
-            'icon'        => $this->icon,
-            'supports'    => $this->supports,
-            'post_types' => $settings['post_types'],
-        ], $this->name);
+        // Allow user to filter values
+        $settings = apply_filters('acfblocks/block_settings', $settings, $this->name);
 
+        // User definitions.
+        $this->enabled     = $settings['enabled'];
+        $this->icon        = $settings['icon'];
+        $this->dir         = $settings['dir'];
         $this->title       = $settings['title'];
         $this->description = $settings['description'];
         $this->category    = $settings['category'];
         $this->icon        = $settings['icon'];
         $this->supports    = $settings['supports'];
         $this->post_types  = $settings['post_types'];
+        $this->align       = $settings['align'];
 
         // Set ACF Fields to the block.
         $this->fields = $this->registerFields();
@@ -177,7 +172,10 @@ class Block
     public function getDefaultSettings(): array
     {
         return [
-            'post_types' => array('post', 'page')
+            'post_types'    => array('post', 'page'),
+            'icon'          => apply_filters('acfblocks/default_icon', 'admin-generic'),
+            'dir'           => '',
+            'enabled'       => true,
         ];
     }
 
