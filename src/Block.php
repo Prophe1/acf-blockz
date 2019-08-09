@@ -176,6 +176,8 @@ class Block
             'icon'          => apply_filters('acfblocks/default_icon', 'admin-generic'),
             'dir'           => '',
             'enabled'       => true,
+            'supports'      => array(),
+            'align'         => false,
         ];
     }
 
