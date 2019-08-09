@@ -284,9 +284,9 @@ class Block
      * Get the block alignment
      *
      * @since 0.1.0
-     * @return string
+     * @return string|bool
      */
-    public function getAlignment(): string
+    public function getAlignment()
     {
         return $this->align;
     }
