@@ -30,6 +30,11 @@ class ACFBlockz
         $this->init();
 
         add_action('acf/init', [$this, 'init']);
+
+        /**
+         * Custom block render
+         */
+        add_filter('pre_render_block', 'Prophe1\ACFBlockz\Blocks\Content::render', 10, 2);
     }
 
     /**
