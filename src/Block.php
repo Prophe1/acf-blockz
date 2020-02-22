@@ -55,7 +55,7 @@ class Block
      * An array of keywords the block will be found under.
      *
      * @since 0.1.0
-     * @var array $keywords
+     * @var $keywords array
      */
     protected $keywords = [];
 
@@ -63,7 +63,7 @@ class Block
      * An array of Post Types the block will be available to.
      *
      * @since 0.1.0
-     * @var array $post_types
+     * @var $post_types array
      */
     protected $post_types = ['post', 'page'];
 
@@ -71,7 +71,7 @@ class Block
      * The default display mode of the block that is shown to the user.
      *
      * @since 0.1.0
-     * @var string $mode
+     * @var $mode string
      */
     protected $mode = 'preview';
 
@@ -79,7 +79,7 @@ class Block
      * The block alignment class.
      *
      * @since 0.1.0
-     * @var string $align
+     * @var $align string
      */
     protected $align = '';
 
@@ -87,7 +87,7 @@ class Block
      * Features supported by the block.
      *
      * @since 0.1.0
-     * @var array $supports
+     * @var $supports array
      */
     protected $supports = [];
 
@@ -95,7 +95,7 @@ class Block
      * The blocks directory path.
      *
      * @since 0.1.0
-     * @var string $dir
+     * @var $dir string
      */
     public $dir;
 
@@ -103,14 +103,14 @@ class Block
      * The blocks accessibility.
      *
      * @since 0.1.0
-     * @var boolean $enabled
+     * @var $enabled bool
      */
     protected $enabled = true;
 
     /**
      * Block constructor.
      *
-     * @param array $settings
+     * @param $settings array
      * @throws \ReflectionException
      */
     public function __construct(array $settings)
@@ -146,7 +146,7 @@ class Block
      * Is the block enabled?
      *
      * @since 0.1.0
-     * @return boolean
+     * @return bool
      */
     public function isEnabled(): bool
     {

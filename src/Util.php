@@ -11,11 +11,6 @@ namespace Prophe1\ACFBlockz;
  */
 class Util
 {
-
-    /**
-     * @param string $string
-     * @return string
-     */
     public static function camelToKebab(string $string): string
     {
         return strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $string));

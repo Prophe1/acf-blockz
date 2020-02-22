@@ -13,7 +13,7 @@ final class Loader {
     /**
      * Class names of modules, settings and helpers.
      *
-     * @var InitializableInterface[]
+     * @var InitializableInterface
      */
     private $initializables = [];
 

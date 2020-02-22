@@ -37,7 +37,7 @@ abstract class AbstractBladeBlock extends Block implements InitializableInterfac
     {
         $frontend = apply_filters(
             'acfblocks/render_block_frontend_path',
-            "$this->dir/blocks/{$this->getName()}",
+            "{$this->dir}/blocks/{$this->getName()}",
             $this
         );
 

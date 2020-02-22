@@ -77,7 +77,7 @@ class ACFBlockz
      *
      * @param $class
      */
-    private function autoload($class)
+    private function autoload($class): void
     {
         // project-specific namespace prefix
         $prefix = __NAMESPACE__;
@@ -111,7 +111,7 @@ class ACFBlockz
      *
      * @since 0.1.0
      */
-    public function init()
+    public function init(): void
     {
         $blocks = apply_filters('acfblocks/blocks', []);
 

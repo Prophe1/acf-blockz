@@ -11,18 +11,11 @@ namespace Prophe1\ACFBlockz;
  */
 abstract class AbstractBlock extends Block implements InitializableInterface
 {
-
-    /**
-     * @return string
-     */
     public function fileExtension(): string
     {
         return '.php';
     }
 
-    /**
-     * @return bool
-     */
     public function isValid(): bool
     {
         return true;
