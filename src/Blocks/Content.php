@@ -394,8 +394,8 @@ class Content
      */
     private function setBlockClasses()
     {
-        if (isset($this->block['className'])) {
-            $this->block_classes[] = $this->block['className'];
+        if (isset($this->block['attrs']['className'])) {
+            $this->block_classes[] = $this->block['attrs']['className'];
         }
         return $this;
     }
