@@ -137,6 +137,7 @@ class Block
         $this->supports    = $settings['supports'];
         $this->post_types  = $settings['post_types'];
         $this->align       = $settings['align'];
+        $this->mode        = $settings['mode'];
 
         // Set ACF Fields to the block.
         $this->fields = $this->registerFields();
@@ -178,6 +179,7 @@ class Block
             'enabled'       => true,
             'supports'      => array(),
             'align'         => false,
+            'mode'          => 'preview'
         ];
     }
 
