@@ -225,7 +225,7 @@ class Content
      */
     public function isEmpty()
     {
-        return (!trim($this->block_content) && empty($this->block['blockName'])) || (!trim($this->block_content) && empty($this->block['blockName']));
+        return !trim($this->block_content) && !trim($this->block['innerHTML']) && empty($this->block['blockName']);
     }
 
     /**
