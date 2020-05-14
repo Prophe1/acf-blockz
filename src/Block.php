@@ -65,7 +65,7 @@ class Block
      * @since 0.1.0
      * @var $post_types array
      */
-    protected $post_types = ['post', 'page'];
+    protected $post_types = [];
 
     /**
      * The default display mode of the block that is shown to the user.
@@ -173,7 +173,6 @@ class Block
     public function getDefaultSettings(): array
     {
         return [
-            'post_types'    => array('post', 'page'),
             'icon'          => apply_filters('acfblocks/default_icon', 'admin-generic'),
             'dir'           => '',
             'enabled'       => true,

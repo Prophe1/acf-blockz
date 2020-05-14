@@ -27,7 +27,6 @@ class ACFBlockz
     {
         $this->constants();
         $this->autoloader();
-        $this->init();
 
         add_action('acf/init', [$this, 'init']);
 
