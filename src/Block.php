@@ -173,6 +173,7 @@ class Block
     public function getDefaultSettings(): array
     {
         return [
+            'post_types'    => [],
             'icon'          => apply_filters('acfblocks/default_icon', 'admin-generic'),
             'dir'           => '',
             'enabled'       => true,
