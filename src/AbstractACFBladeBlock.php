@@ -35,6 +35,11 @@ abstract class AbstractACFBladeBlock extends AbstractBladeBlock
 
         $this->acf = get_fields();
 
+        // Erase acf pre_load after assigning fields to main class
+        if (isset($block['id'])) {
+            acf_reset_meta($block['id']);
+        }
+
         // Overwrite controller key if this name was taken
         $this->acf['controller'] = $this;
 
