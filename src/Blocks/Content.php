@@ -406,7 +406,7 @@ class Content
     private function setBlockContent()
     {
         foreach ($this->block['innerContent'] as $chunk) {
-            $this->block_content = is_string($chunk) ? $chunk : self::render(true,
+            $this->block_content .= is_string($chunk) ? $chunk : self::render(true,
                 $this->block['innerBlocks'][$this->block_index++], $this->disable_inner_container, $this->columns);
         }
 
