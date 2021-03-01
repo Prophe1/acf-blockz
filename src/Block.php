@@ -92,6 +92,13 @@ class Block
     protected $supports = [];
 
     /**
+     * Show block only inside certain blocks
+     * @since 0.2.4
+     * @var array
+     */
+    protected $parent = [];
+
+    /**
      * The blocks directory path.
      *
      * @since 0.1.0
@@ -138,6 +145,7 @@ class Block
         $this->post_types  = $settings['post_types'];
         $this->align       = $settings['align'];
         $this->mode        = $settings['mode'];
+        $this->parent      = $settings['parent'];
 
         // Set ACF Fields to the block.
         $this->fields = $this->registerFields();
@@ -177,9 +185,10 @@ class Block
             'icon'          => apply_filters('acfblocks/default_icon', 'admin-generic'),
             'dir'           => '',
             'enabled'       => true,
-            'supports'      => array(),
+            'supports'      => [],
             'align'         => false,
-            'mode'          => 'preview'
+            'mode'          => 'preview',
+            'parent'        => []
         ];
     }
 
@@ -283,6 +292,17 @@ class Block
     }
 
     /**
+     * Get the list of parents
+     *
+     * @since 0.2.4
+     * @return array
+     */
+    public function getParent(): array
+    {
+        return $this->parent;
+    }
+
+    /**
      * Get the block alignment
      *
      * @since 0.1.0
@@ -323,6 +343,7 @@ class Block
             'mode' => $this->getMode(),
             'align' => $this->getAlignment(),
             'supports' => $this->getSupports(),
+            'parent' => $this->getParent()
         ];
     }
 

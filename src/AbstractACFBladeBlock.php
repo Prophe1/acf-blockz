@@ -40,6 +40,11 @@ abstract class AbstractACFBladeBlock extends AbstractBladeBlock
             acf_reset_meta($block['id']);
         }
 
+        // Pass block className with block parameters
+        if (isset($block['className'])) {
+            $this->acf['className'] = $block['className'];
+        }
+
         // Overwrite controller key if this name was taken
         $this->acf['controller'] = $this;
 
