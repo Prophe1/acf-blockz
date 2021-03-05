@@ -157,9 +157,10 @@ class Content
 
         $containers = apply_filters('content/render', [
             'default_inner' => $this->getContainerClass('md'),
-            'inner_small' => array(),
-            'no_container' => array(),
-            'small_default' => array()
+            'inner_small' => [],
+            'no_container' => [],
+            'small_default' => [],
+            'no_wrap' => []
         ]);
 
         $this->setContainers($containers);
@@ -426,6 +427,18 @@ class Content
         }
     }
 
+    /**
+     * @return bool
+     */
+    private function isWrapped()
+    {
+        if (!in_array($this->block['blockName'], $this->getContainers('no_wrap'))) {
+            return true;
+        }
+
+        return false;
+    }
+
 
     /**
      * @param  string  $block_content
@@ -457,6 +470,12 @@ class Content
             ->setBlockClasses()
             ->setBlockContent();
 
+
+        if (!$content->isWrapped()) {
+            echo 'NOT WRAPPED';
+
+            return $content->block_content;
+        }
 
         return template(
             'blocks.block-container',
