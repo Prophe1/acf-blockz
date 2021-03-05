@@ -94,9 +94,9 @@ class Block
     /**
      * Show block only inside certain blocks
      * @since 0.2.4
-     * @var array
+     * @var array|null
      */
-    protected $parent = [];
+    protected $parent = null;
 
     /**
      * The blocks directory path.
@@ -297,7 +297,7 @@ class Block
      * @since 0.2.4
      * @return array
      */
-    public function getParent(): array
+    public function getParent(): ?array
     {
         return $this->parent;
     }
@@ -332,7 +332,7 @@ class Block
      */
     public function getBlockData(): array
     {
-        return [
+        return array_filter([
             'name' => $this->getName(),
             'title' => $this->getTitle(),
             'description' => $this->getDescription(),
@@ -344,7 +344,7 @@ class Block
             'align' => $this->getAlignment(),
             'supports' => $this->getSupports(),
             'parent' => $this->getParent()
-        ];
+        ]);
     }
 
     /**
