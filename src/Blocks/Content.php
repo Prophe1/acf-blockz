@@ -472,8 +472,6 @@ class Content
 
 
         if (!$content->isWrapped()) {
-            echo 'NOT WRAPPED';
-
             return $content->block_content;
         }
 
